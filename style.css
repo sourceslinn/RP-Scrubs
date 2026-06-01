@@ -20,11 +20,35 @@ body {
     font-family: 'Space Grotesk', sans-serif;
     overflow-x: hidden;
     position: relative;
+    padding-top: 140px; /* Evita que el menú fijo tape el contenido */
 }
 
-h2, h3 {
+/* --- TIPOGRAFÍAS --- */
+h1, h2, h3, .section-title {
     font-family: 'Fraunces', serif;
-    color: var(--subtitle-color);
+}
+
+.logo .rp, .brand-title, .product-price, .cart-total {
+    font-family: 'Lalita One', sans-serif;
+}
+
+.logo .scrubs, .placeholder-text {
+    font-family: 'Pacifico', cursive;
+}
+
+/* --- CONTROL CORREGIDO DE ICONOS --- */
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px !important; /* Fuerza el tamaño correcto para que no salgan gigantes */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
 }
 
 /* --- VECTORES DE ANIMACIÓN (Flores y Abejas) --- */
@@ -32,69 +56,74 @@ h2, h3 {
     position: absolute;
     pointer-events: none;
     z-index: 1;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
-/* Abeja animada */
 .bee {
-    top: 250px;
+    top: 220px;
     left: -50px;
-    width: 40px;
-    height: 40px;
-    animation: flyAround 15s infinite linear;
+    width: 45px;
+    height: 45px;
+    animation: flyAround 18s infinite linear;
 }
 
 @keyframes flyAround {
     0% { transform: translate(0, 0) scaleX(1); }
-    45% { transform: translate(90vw, 50px) scaleX(1); }
-    50% { transform: translate(90vw, 50px) scaleX(-1); }
-    95% { transform: translate(5vw, 150px) scaleX(-1); }
+    45% { transform: translate(85vw, 60px) scaleX(1); }
+    50% { transform: translate(85vw, 60px) scaleX(-1); }
+    95% { transform: translate(10vw, 120px) scaleX(-1); }
     100% { transform: translate(0, 0) scaleX(1); }
 }
 
-/* Flores estáticas pero caricaturescas en las esquinas */
-.flower-1 { top: 600px; right: 20px; width: 60px; }
-.flower-2 { top: 1400px; left: 20px; width: 50px; transform: rotate(15deg); }
+.flower-1 { top: 550px; right: 30px; width: 55px; }
+.flower-2 { top: 1350px; left: 30px; width: 50px; transform: rotate(20deg); }
 
-/* --- CABECERA --- */
+/* --- CABECERA (STICKY VINTAGE) --- */
 header {
     background-color: var(--bg-color);
-    border-bottom: 3px solid var(--divider-color);
-    padding: 20px 40px;
-    position: sticky;
+    border-bottom: 4px solid var(--text-color); /* Borde caricaturesco grueso */
+    padding: 15px 40px;
+    position: fixed;
     top: 0;
-    z-index: 100;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .logo {
-    font-size: 2.8rem;
+    font-size: 2.6rem;
     text-decoration: none;
     display: inline-block;
 }
-.logo .rp { font-family: 'Lalita One', sans-serif; color: var(--logo-color); }
-.logo .scrubs { font-family: 'Pacifico', cursive; color: var(--logo-color); margin-left: -5px; }
+.logo .rp { color: var(--logo-color); }
+.logo .scrubs { color: var(--logo-color); margin-left: -4px; }
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
 
 .social-links a {
     color: var(--icon-color);
     text-decoration: none;
-    margin-left: 15px;
-    font-size: 24px;
     transition: transform 0.2s;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.social-links a:hover { transform: scale(1.1); }
+.social-links a:hover { transform: scale(1.2); }
 
 nav {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 25px;
 }
 
 nav a {
@@ -102,47 +131,51 @@ nav a {
     color: var(--text-color);
     font-weight: 700;
     text-transform: uppercase;
-    font-size: 0.95rem;
-    padding: 5px 10px;
+    font-size: 0.9rem;
+    padding: 6px 12px;
+    border: 2px solid transparent;
     border-radius: 8px;
-    transition: background 0.2s;
+    transition: all 0.2s;
 }
 nav a:hover {
     background-color: var(--divider-color);
+    border-color: var(--text-color);
 }
 
-/* --- CONTENEDOR PRINCIPAL SECCIONES --- */
+/* --- CONTENEDOR PRINCIPAL --- */
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 40px 20px;
 }
 
 section {
-    margin-bottom: 80px;
-    scroll-margin-top: 140px;
+    margin-bottom: 90px;
+    scroll-margin-top: 160px;
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     text-align: center;
-    margin-bottom: 40px;
-    font-family: 'Fraunces', serif;
+    margin-bottom: 35px;
+    color: var(--text-color);
+    text-shadow: 2px 2px 0px var(--divider-color);
 }
 
-/* --- SECCIÓN CATÁLOGO (TIENDA) --- */
+/* --- CATÁLOGO (TIENDA CON SCROLL ANIDADO) --- */
 .catalog-scroll-box {
-    max-height: 700px;
+    max-height: 680px;
     overflow-y: auto;
-    border: 4px solid var(--divider-color);
+    border: 4px solid var(--text-color);
     border-radius: 20px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.3);
+    padding: 25px;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 6px 6px 0px var(--divider-color);
 }
 
 .catalog-scroll-box::-webkit-scrollbar { width: 12px; }
 .catalog-scroll-box::-webkit-scrollbar-track { background: var(--bg-color); border-radius: 10px; }
-.catalog-scroll-box::-webkit-scrollbar-thumb { background: var(--subtitle-color); border-radius: 10px; border: 2px solid var(--bg-color); }
+.catalog-scroll-box::-webkit-scrollbar-thumb { background: var(--subtitle-color); border-radius: 10px; border: 3px solid var(--bg-color); }
 
 .catalog-grid {
     display: grid;
@@ -156,7 +189,7 @@ section {
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 5px 5px 0px var(--text-color);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.2s, box-shadow 0.2s;
     display: flex;
     flex-direction: column;
 }
@@ -167,17 +200,16 @@ section {
 
 .product-img-placeholder {
     width: 100%;
-    height: 250px;
+    height: 230px;
     background-color: var(--divider-color);
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: 3px solid var(--text-color);
-    position: relative;
 }
 .product-img-placeholder .placeholder-text {
-    font-family: 'Pacifico', cursive;
     color: var(--icon-color);
+    font-size: 1.2rem;
     opacity: 0.6;
 }
 
@@ -190,21 +222,20 @@ section {
 
 .product-info h3 {
     color: var(--text-color);
-    font-size: 1.4rem;
-    margin-bottom: 8px;
+    font-size: 1.3rem;
+    margin-bottom: 6px;
 }
 
 .product-price {
-    font-family: 'Lalita One', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: var(--icon-color);
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 .selector-label {
     font-size: 0.85rem;
-    font-weight: bold;
-    margin-top: 10px;
+    font-weight: 700;
+    margin-top: 8px;
     margin-bottom: 4px;
     display: block;
 }
@@ -213,44 +244,44 @@ select {
     width: 100%;
     padding: 8px;
     font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
     border: 2px solid var(--text-color);
     border-radius: 8px;
     background: var(--bg-color);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     outline: none;
 }
 
 .btn-add-cart {
     margin-top: auto;
     background-color: var(--logo-color);
-    color: white;
+    color: #FFFFFF;
     border: 2px solid var(--text-color);
     padding: 12px;
     border-radius: 8px;
     font-family: 'Space Grotesk', sans-serif;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
-    box-shadow: 0px 3px 0px var(--text-color);
+    box-shadow: 0px 4px 0px var(--text-color);
     transition: all 0.1s;
 }
 .btn-add-cart:active {
-    transform: translateY(3px);
+    transform: translateY(4px);
     box-shadow: 0px 0px 0px var(--text-color);
 }
 
 /* --- SECCIÓN SOBRE LA MARCA --- */
 #sobre-la-marca {
     background-color: var(--bg-color);
-    background-image: linear-gradient(90deg, #FFFFFF 2px, transparent 2px);
-    background-size: 40px 100%;
+    background-image: linear-gradient(90deg, #FFFFFF 3px, transparent 3px);
+    background-size: 45px 100%;
     border: 3px solid var(--text-color);
     border-radius: 20px;
-    padding: 40px;
-    box-shadow: 6px 6px 0px var(--text-color);
+    padding: 40px 20px;
+    box-shadow: 7px 7px 0px var(--text-color);
 }
 
-#sobre-la-marca h2 {
-    font-family: 'Lalita One', sans-serif;
+.brand-title {
     color: var(--icon-color);
     font-size: 2.8rem;
     text-align: center;
@@ -261,15 +292,15 @@ select {
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.8;
-    font-size: 1.1rem;
 }
 
 .brand-block {
-    margin-bottom: 25px;
-    background: rgba(255, 255, 255, 0.85);
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.92);
     padding: 20px;
     border-radius: 12px;
     border: 2px solid var(--text-color);
+    box-shadow: 4px 4px 0px var(--text-color);
 }
 
 .brand-block strong {
@@ -277,7 +308,7 @@ select {
     color: var(--icon-color);
     font-size: 1.3rem;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
 /* --- SECCIÓN PREGUNTAS FRECUENTES (FAQ) --- */
@@ -296,7 +327,7 @@ select {
 }
 
 .faq-question {
-    padding: 20px;
+    padding: 18px 20px;
     background: var(--divider-color);
     font-weight: 700;
     cursor: pointer;
@@ -310,9 +341,9 @@ select {
     padding: 0 20px;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
+    transition: max-height 0.25s ease, padding 0.25s ease;
     line-height: 1.6;
-    background: #FFF;
+    background: #FFFFFF;
 }
 
 .faq-item.active .faq-answer {
@@ -321,7 +352,7 @@ select {
     border-top: 2px solid var(--text-color);
 }
 
-/* --- SECCIÓN CARRITO --- */
+/* --- SECCIÓN CARRITO JUGUETÓN --- */
 #carrito {
     background: #FFFFFF;
     border: 3px solid var(--text-color);
@@ -340,30 +371,28 @@ select {
     justify-content: space-between;
     align-items: center;
     padding: 12px 0;
-    border-bottom: 2px dashed var(--divider-color);
+    border-bottom: 2px dashed var(--subtitle-color);
 }
 
 .cart-total {
     text-align: right;
-    font-size: 1.4rem;
-    font-weight: bold;
-    font-family: 'Lalita One', sans-serif;
+    font-size: 1.6rem;
     color: var(--icon-color);
     margin-top: 15px;
 }
 
-/* --- FOOTER --- */
+/* --- FOOTER BLUR --- */
 footer {
-    background: rgba(188, 208, 232, 0.4);
-    backdrop-filter: blur(12px);
+    background: rgba(188, 208, 232, 0.4); 
+    backdrop-filter: blur(12px); 
     -webkit-backdrop-filter: blur(12px);
-    border-top: 3px solid var(--divider-color);
-    padding: 40px 20px;
-    margin-top: 100px;
+    border-top: 4px solid var(--text-color);
+    padding: 45px 20px;
+    margin-top: 80px;
 }
 
 .footer-container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -378,8 +407,9 @@ footer {
 }
 
 .footer-newsletter h4 {
-    font-family: 'Fraunces', serif;
     margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: var(--text-color);
 }
 
 .newsletter-form {
@@ -389,7 +419,7 @@ footer {
 
 .newsletter-form input {
     flex: 1;
-    padding: 10px;
+    padding: 12px;
     border: 2px solid var(--text-color);
     border-radius: 8px;
     font-family: 'Space Grotesk', sans-serif;
@@ -398,10 +428,10 @@ footer {
 
 .newsletter-form button {
     background: var(--icon-color);
-    color: #FFF;
+    color: #FFFFFF;
     border: 2px solid var(--text-color);
     padding: 10px 20px;
     border-radius: 8px;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
 }
