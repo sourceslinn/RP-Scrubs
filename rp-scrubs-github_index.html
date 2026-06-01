@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RP Scrubs</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Lalita+One&family=Pacifico&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Vinculación del archivo CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Vectores de animación -->
+    <!-- SVG Animado de Abeja -->
+    <svg class="vector-decor bee" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C10 2 8 4 8 7C8 8.5 9 10 10 11C7 11 4 13 4 16C4 19 7 21 12 21C17 21 20 19 20 16C20 13 17 11 14 11C15 10 16 8.5 16 7C16 4 14 2 12 2Z" fill="#234FAD"/>
+        <path d="M4 16H20" stroke="#FFF3B0" stroke-width="2"/>
+        <path d="M6 13C6 10 9 8 12 8C15 8 18 10 18 13" stroke="#234FAD" stroke-width="1.5"/>
+    </svg>
+    
+    <!-- SVG de Flores -->
+    <svg class="vector-decor flower-1" viewBox="0 0 24 24" fill="#8A94F2" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="3" fill="#234FAD"/>
+        <circle cx="12" cy="5" r="3"/>
+        <circle cx="12" cy="19" r="3"/>
+        <circle cx="5" cy="12" r="3"/>
+        <circle cx="19" cy="12" r="3"/>
+    </svg>
+    <svg class="vector-decor flower-2" viewBox="0 0 24 24" fill="#BCD0E8" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="3" fill="#234FAD"/>
+        <circle cx="12" cy="5" r="3"/>
+        <circle cx="12" cy="19" r="3"/>
+        <circle cx="5" cy="12" r="3"/>
+        <circle cx="19" cy="12" r="3"/>
+    </svg>
+
+    <!-- CABECERA -->
+    <header>
+        <div class="header-top">
+            <a href="#" class="logo">
+                <span class="rp">RP</span>
+                <span class="scrubs">Scrubs</span>
+            </a>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1L6nA9K7yT/?mibextid=wwXIfr" target="_blank" title="Facebook">
+                    <span class="material-icons">facebook</span>
+                </a>
+                <a href="https://www.instagram.com/rp_scrubs?igsh=ZGF1NWV0eWo3dnN2" target="_blank" title="Instagram">
+                    <span class="material-icons">photo_camera</span>
+                </a>
+            </div>
+        </div>
+        <nav>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#sobre-la-marca">Sobre la Marca</a>
+            <a href="#faq">Preguntas Frecuentes</a>
+            <a href="#carrito">Carrito (<span id="cart-count">0</span>)</a>
+        </nav>
+    </header>
+
+    <!-- CUERPO / CONTENEDOR -->
+    <div class="container">
+
+        <!-- SECCIÓN TIENDA / INVENTARIO -->
+        <section id="catalogo">
+            <h2 class="section-title">Nuestras Prendas</h2>
+            <div class="catalog-scroll-box">
+                <div class="catalog-grid">
+                    
+                    <!-- Item 1 -->
+                    <div class="product-card" data-name="Uniforme modelo Daila" data-price="480">
+                        <div class="product-img-placeholder">
+                            <span class="placeholder-text">Espacio Imagen</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Uniforme modelo Daila</h3>
+                            <div class="product-price">$480.00</div>
+                            <label class="selector-label">Talla:</label>
+                            <select class="prod-size">
+                                <option value="XCH">XCH</option>
+                                <option value="CH">CH</option>
+                                <option value="M">M</option>
+                                <option value="XG">XG</option>
+                            </select>
+                            <label class="selector-label">Color:</label>
+                            <select class="prod-color">
+                                <option value="Único">Tono Estándar</option>
+                            </select>
+                            <button class="btn-add-cart" onclick="addToCart(this)">Agregar al carrito</button>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="product-card" data-name="Uniforme Recto" data-price="470">
+                        <div class="product-img-placeholder">
+                            <span class="placeholder-text">Espacio Imagen</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Uniforme Recto</h3>
+                            <div class="product-price">$470.00</div>
+                            <label class="selector-label">Corte:</label>
+                            <select class="prod-style">
+                                <option value="Hombre">Hombre</option>
+                                <option value="Mujer">Mujer</option>
+                            </select>
+                            <label class="selector-label">Talla:</label>
+                            <select class="prod-size">
+                                <option value="CH">CH</option>
+                                <option value="M">M</option>
+                                <option value="G">G</option>
+                            </select>
+                            <label class="selector-label">Color:</label>
+                            <select class="prod-color">
+                                <option value="Oxford">Oxford</option>
+                                <option value="Negro">Negro</option>
+                                <option value="Marino">Marino</option>
+                                <option value="Blanco">Blanco</option>
+                            </select>
+                            <button class="btn-add-cart" onclick="addToCart(this)">Agregar al carrito</button>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="product-card" data-name="Uniforme Jogger" data-price="470">
+                        <div class="product-img-placeholder">
+                            <span class="placeholder-text">Espacio Imagen</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Uniforme Jogger</h3>
+                            <div class="product-price">$470.00</div>
+                            <label class="selector-label">Corte:</label>
+                            <select class="prod-style">
+                                <option value="Hombre">Hombre</option>
+                                <option value="Mujer">Mujer</option>
+                            </select>
+                            <label class="selector-label">Talla:</label>
+                            <select class="prod-size">
+                                <option value="XCH">XCH</option>
+                                <option value="CH">CH</option>
+                                <option value="M">M</option>
+                                <option value="G">G</option>
+                                <option value="XG">XG</option>
+                            </select>
+                            <label class="selector-label">Color:</label>
+                            <select class="prod-color">
+                                <option value="Azul">Azul</option>
+                                <option value="Negro">Negro</option>
+                                <option value="Morado">Morado</option>
+                            </select>
+                            <button class="btn-add-cart" onclick="addToCart(this)">Agregar al carrito</button>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="product-card" data-name="Filipina Estampada" data-price="280">
+                        <div class="product-img-placeholder">
+                            <span class="placeholder-text">Espacio Imagen</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Filipina Estampada</h3>
+                            <div class="product-price">$280.00</div>
+                            <label class="selector-label">Talla:</label>
+                            <select class="prod-size">
+                                <option value="CH">CH</option>
+                                <option value="M">M</option>
+                                <option value="G">G</option>
+                                <option value="XG">XG</option>
+                            </select>
+                            <label class="selector-label">Diseño:</label>
+                            <select class="prod-color">
+                                <option value="Bloom">Bloom</option>
+                                <option value="Coquette">Coquette</option>
+                                <option value="Polka Dots">Polka Dots</option>
+                                <option value="Cheetah">Cheetah</option>
+                            </select>
+                            <button class="btn-add-cart" onclick="addToCart(this)">Agregar al carrito</button>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="product-card" data-name="Jumpsuit" data-price="510">
+                        <div class="product-img-placeholder">
+                            <span class="placeholder-text">Espacio Imagen</span>
+                        </div>
+                        <div class="product-info">
+                            <h3>Jumpsuit</h3>
+                            <div class="product-price">$510.00</div>
+                            <label class="selector-label">Talla:</label>
+                            <select class="prod-size">
+                                <option value="XCH">XCH</option>
+                                <option value="CH">CH</option>
+                                <option value="M">M</option>
+                                <option value="G">G</option>
+                                <option value="XG">XG</option>
+                            </select>
+                            <label class="selector-label">Tono:</label>
+                            <select class="prod-color">
+                                <option value="Plumbago">Plumbago</option>
+                                <option value="Berry Blush">Berry Blush</option>
+                                <option value="Negro">Negro</option>
+                                <option value="Expresso">Expresso</option>
+                            </select>
+                            <button class="btn-add-cart" onclick="addToCart(this)">Agregar al carrito</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN SOBRE LA MARCA -->
+        <section id="sobre-la-marca">
+            <h2>Sobre la Marca</h2>
+            <div class="brand-content">
+                <div class="brand-block">
+                    <p>RP Scrubs es una marca de uniformes diseñada para personas que trabajan en ambientes donde se necesita comodidad, movilidad y una imagen impecable sin perder estilo. Más que en un uniforme, RP Scrubs es seguridad, presencia y confianza en cada jornada.</p>
+                </div>
+                <div class="brand-block">
+                    <strong>Misión</strong>
+                    <p>Brindar uniformes de alta calidad que combinen comodidad, estilo y funcionalidad, ayudando a personas de diferentes áreas de profesionales a desempeñar su trabajo con libertad de movimiento y una imagen moderna.</p>
+                </div>
+                <div class="brand-block">
+                    <strong>Visión</strong>
+                    <p>Ser una marca líder en uniformes tipo scrub reconocida por ofrecer prendas que elevan la experiencia diaria de quienes trabajan largas jornadas destacando por su diseño moderno y comodidad.</p>
+                </div>
+                <div class="brand-block">
+                    <strong>Valores</strong>
+                    <p>Profesionalismo, comodidad, estilo, confianza y compromiso.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN PREGUNTAS FRECUENTES -->
+        <section id="faq">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">¿Cómo sé cuál es mi talla correcta? <span class="material-icons">expand_more</span></div>
+                    <div class="faq-answer">En la descripción de cada producto puedes consultar los cortes disponibles (XCH a XG). Te recomendamos revisar nuestras medidas estándar para asegurar tu óptima movilidad.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Qué métodos de cuidado requieren las telas? <span class="material-icons">expand_more</span></div>
+                    <div class="faq-answer">Nuestros materiales están hechos para soportar largas jornadas. Se recomienda lavar a máquina con agua fría y secar a temperatura baja para conservar los tonos intactos.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">¿Hacen envíos a todo el país? <span class="material-icons">expand_more</span></div>
+                    <div class="faq-answer">Sí, realizamos envíos seguros y rápidos directamente hasta tu clínica, hospital o consultorio.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN CARRITO DE COMPRAS -->
+        <section id="carrito">
+            <h2 class="section-title" style="color: var(--icon-color);">Tu Carrito</h2>
+            <ul class="cart-list" id="cart-items-list">
+                <li style="text-align: center; color: gray; padding: 20px;">El carrito está vacío.</li>
+            </ul>
+            <div class="cart-total">Total: $<span id="cart-total-val">0.00</span></div>
+        </section>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <a href="#" class="logo">
+                <span class="rp">RP</span>
+                <span class="scrubs">Scrubs</span>
+            </a>
+            
+            <div class="footer-newsletter">
+                <h4>Hazte Miembro</h4>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Tu correo electrónico">
+                    <button type="button">Unirme</button>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1L6nA9K7yT/?mibextid=wwXIfr" target="_blank">
+                    <span class="material-icons">facebook</span>
+                </a>
+                <a href="https://www.instagram.com/rp_scrubs?igsh=ZGF1NWV0eWo3dnN2" target="_blank">
+                    <span class="material-icons">photo_camera</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vinculación del archivo JS externo -->
+    <script src="app.js"></script>
+</body>
+</html>

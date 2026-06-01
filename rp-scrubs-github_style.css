@@ -1,0 +1,407 @@
+/* --- VARIABLES Y CONFIGURACIÓN GENERAL --- */
+:root {
+    --bg-color: #FFF3B0;
+    --logo-color: #8A94F2;
+    --divider-color: #E2F3FF;
+    --subtitle-color: #BCD0E8;
+    --icon-color: #234FAD;
+    --text-color: #000000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Space Grotesk', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+h2, h3 {
+    font-family: 'Fraunces', serif;
+    color: var(--subtitle-color);
+}
+
+/* --- VECTORES DE ANIMACIÓN (Flores y Abejas) --- */
+.vector-decor {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.7;
+}
+
+/* Abeja animada */
+.bee {
+    top: 250px;
+    left: -50px;
+    width: 40px;
+    height: 40px;
+    animation: flyAround 15s infinite linear;
+}
+
+@keyframes flyAround {
+    0% { transform: translate(0, 0) scaleX(1); }
+    45% { transform: translate(90vw, 50px) scaleX(1); }
+    50% { transform: translate(90vw, 50px) scaleX(-1); }
+    95% { transform: translate(5vw, 150px) scaleX(-1); }
+    100% { transform: translate(0, 0) scaleX(1); }
+}
+
+/* Flores estáticas pero caricaturescas en las esquinas */
+.flower-1 { top: 600px; right: 20px; width: 60px; }
+.flower-2 { top: 1400px; left: 20px; width: 50px; transform: rotate(15deg); }
+
+/* --- CABECERA --- */
+header {
+    background-color: var(--bg-color);
+    border-bottom: 3px solid var(--divider-color);
+    padding: 20px 40px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.logo {
+    font-size: 2.8rem;
+    text-decoration: none;
+    display: inline-block;
+}
+.logo .rp { font-family: 'Lalita One', sans-serif; color: var(--logo-color); }
+.logo .scrubs { font-family: 'Pacifico', cursive; color: var(--logo-color); margin-left: -5px; }
+
+.social-links a {
+    color: var(--icon-color);
+    text-decoration: none;
+    margin-left: 15px;
+    font-size: 24px;
+    transition: transform 0.2s;
+    display: inline-block;
+}
+.social-links a:hover { transform: scale(1.1); }
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+nav a:hover {
+    background-color: var(--divider-color);
+}
+
+/* --- CONTENEDOR PRINCIPAL SECCIONES --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+section {
+    margin-bottom: 80px;
+    scroll-margin-top: 140px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: 'Fraunces', serif;
+}
+
+/* --- SECCIÓN CATÁLOGO (TIENDA) --- */
+.catalog-scroll-box {
+    max-height: 700px;
+    overflow-y: auto;
+    border: 4px solid var(--divider-color);
+    border-radius: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.catalog-scroll-box::-webkit-scrollbar { width: 12px; }
+.catalog-scroll-box::-webkit-scrollbar-track { background: var(--bg-color); border-radius: 10px; }
+.catalog-scroll-box::-webkit-scrollbar-thumb { background: var(--subtitle-color); border-radius: 10px; border: 2px solid var(--bg-color); }
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: #FFFFFF;
+    border: 3px solid var(--text-color);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 5px 5px 0px var(--text-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+.product-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 9px 9px 0px var(--text-color);
+}
+
+.product-img-placeholder {
+    width: 100%;
+    height: 250px;
+    background-color: var(--divider-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid var(--text-color);
+    position: relative;
+}
+.product-img-placeholder .placeholder-text {
+    font-family: 'Pacifico', cursive;
+    color: var(--icon-color);
+    opacity: 0.6;
+}
+
+.product-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-info h3 {
+    color: var(--text-color);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.product-price {
+    font-family: 'Lalita One', sans-serif;
+    font-size: 1.3rem;
+    color: var(--icon-color);
+    margin-bottom: 15px;
+}
+
+.selector-label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    display: block;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    border: 2px solid var(--text-color);
+    border-radius: 8px;
+    background: var(--bg-color);
+    margin-bottom: 10px;
+    outline: none;
+}
+
+.btn-add-cart {
+    margin-top: auto;
+    background-color: var(--logo-color);
+    color: white;
+    border: 2px solid var(--text-color);
+    padding: 12px;
+    border-radius: 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 3px 0px var(--text-color);
+    transition: all 0.1s;
+}
+.btn-add-cart:active {
+    transform: translateY(3px);
+    box-shadow: 0px 0px 0px var(--text-color);
+}
+
+/* --- SECCIÓN SOBRE LA MARCA --- */
+#sobre-la-marca {
+    background-color: var(--bg-color);
+    background-image: linear-gradient(90deg, #FFFFFF 2px, transparent 2px);
+    background-size: 40px 100%;
+    border: 3px solid var(--text-color);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 6px 6px 0px var(--text-color);
+}
+
+#sobre-la-marca h2 {
+    font-family: 'Lalita One', sans-serif;
+    color: var(--icon-color);
+    font-size: 2.8rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.brand-content {
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.brand-block {
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid var(--text-color);
+}
+
+.brand-block strong {
+    font-family: 'Fraunces', serif;
+    color: var(--icon-color);
+    font-size: 1.3rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* --- SECCIÓN PREGUNTAS FRECUENTES (FAQ) --- */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: #FFFFFF;
+    border: 2px solid var(--text-color);
+    border-radius: 12px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    box-shadow: 4px 4px 0px var(--text-color);
+}
+
+.faq-question {
+    padding: 20px;
+    background: var(--divider-color);
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+}
+
+.faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    line-height: 1.6;
+    background: #FFF;
+}
+
+.faq-item.active .faq-answer {
+    padding: 20px;
+    max-height: 200px;
+    border-top: 2px solid var(--text-color);
+}
+
+/* --- SECCIÓN CARRITO --- */
+#carrito {
+    background: #FFFFFF;
+    border: 3px solid var(--text-color);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 6px 6px 0px var(--text-color);
+}
+
+.cart-list {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 2px dashed var(--divider-color);
+}
+
+.cart-total {
+    text-align: right;
+    font-size: 1.4rem;
+    font-weight: bold;
+    font-family: 'Lalita One', sans-serif;
+    color: var(--icon-color);
+    margin-top: 15px;
+}
+
+/* --- FOOTER --- */
+footer {
+    background: rgba(188, 208, 232, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 3px solid var(--divider-color);
+    padding: 40px 20px;
+    margin-top: 100px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.footer-newsletter {
+    flex: 1;
+    min-width: 280px;
+}
+
+.footer-newsletter h4 {
+    font-family: 'Fraunces', serif;
+    margin-bottom: 10px;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid var(--text-color);
+    border-radius: 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    outline: none;
+}
+
+.newsletter-form button {
+    background: var(--icon-color);
+    color: #FFF;
+    border: 2px solid var(--text-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
